@@ -2,6 +2,26 @@ document.getElementById('upload').addEventListener('change', handleImage, false)
 document.getElementById('download').addEventListener('click', downloadImage, false);
 
 let uploadedFileName = '';
+
+window.onload = function() {
+    drawFrame();
+};
+
+function drawFrame() {
+    const frame = new Image();
+    console.log('drawing... the frame')
+    const ctx = canvas.getContext('2d');
+    frame.src = 'imgs/frame.png';
+    frame.onload = function() {
+        canvas.width = frame.width;
+        canvas.height = frame.height;
+
+        // Vẽ hình frame lên canvas
+        ctx.drawImage(frame, 0, 0, canvas.width, canvas.height);
+    }
+}
+
+
 function handleImage(e) {
     uploadedFileName = e.target.files[0].name.split('.')[0];
     const reader = new FileReader();
