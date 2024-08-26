@@ -33,25 +33,38 @@ function handleImage(e) {
                 const canvas = document.getElementById('canvas');
                 const ctx = canvas.getContext('2d');
 
-                // Set canvas dimensions to match the overlay
-                canvas.width = overlay.width;
-                canvas.height = overlay.height;
+                // // Set canvas dimensions to match the overlay
+                // canvas.width = overlay.width;
+                // canvas.height = overlay.height;
 
-                // Calculate the scaling factor to fit the uploaded image within the overlay
-                const scaleFactor = Math.min(
-                    overlay.width / img.width,
-                    overlay.height / img.height
-                );
+                // // Calculate the scaling factor to fit the uploaded image within the overlay
+                // const scaleFactor = Math.min(
+                //     overlay.width / img.width,
+                //     overlay.height / img.height
+                // );
 
-                const scaledWidth = img.width * scaleFactor;
-                const scaledHeight = img.height * scaleFactor;
+                // const scaledWidth = img.width * scaleFactor;
+                // const scaledHeight = img.height * scaleFactor;
 
-                // Center the scaled image on the canvas
-                const xOffset = (canvas.width - scaledWidth);
-                const yOffset = (canvas.height - scaledHeight);
+                // // Center the scaled image on the canvas
+                // const xOffset = (canvas.width - scaledWidth);
+                // const yOffset = (canvas.height - scaledHeight);
 
-                // Draw the scaled image
-                ctx.drawImage(img, xOffset, yOffset, scaledWidth, scaledHeight);
+                // // Draw the scaled image
+                // ctx.drawImage(img, xOffset, yOffset, scaledWidth, scaledHeight);
+                if (img.width !== img.height) {
+                    const minSize= img.width > img.height? img.height : img.width;
+                    // crop
+                    ctx.drawImage(img, 0, 0, minSize, minSize, 0, 0, minSize, minSize);
+                } else {
+                    // Calculate the scaling factor to fit the uploaded image within the overlay
+                    const scaleFactor = overlay.width / img.width;
+                    const scaledWidth = img.width * scaleFactor;
+                    const scaledHeight = img.height * scaleFactor;
+                    const xOffset = (canvas.width - scaledWidth);
+                    const yOffset = (canvas.height - scaledHeight);
+                    ctx.drawImage(img, xOffset, yOffset, scaledWidth, scaledHeight);
+                }
 
                 // Draw the overlay on top
                 ctx.drawImage(overlay, 0, 0, canvas.width, canvas.height);
