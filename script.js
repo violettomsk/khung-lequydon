@@ -74,7 +74,12 @@ function initializeSlider() {
         'sliders/2.jpg',
         'sliders/3.jpg',
         'sliders/4.jpg',
-        'sliders/5.jpg'
+        'sliders/5.jpg',
+        'sliders/6.jpg',
+        'sliders/7.jpg',
+        'sliders/8.jpg',
+        'sliders/9.jpg',
+        'sliders/10.jpg'
     ];
 
     images.forEach(image => {
