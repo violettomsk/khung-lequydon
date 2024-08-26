@@ -5,6 +5,7 @@ let uploadedFileName = '';
 
 // Vẽ khung nền frame.png ngay khi trang được tải
 window.onload = function() {
+    initializeSlider()
     drawFrame();
 };
 
@@ -62,4 +63,34 @@ function downloadImage() {
     link.href = canvas.toDataURL('image/jpeg');
     link.download = `LQD-${uploadedFileName}.jpg`;
     link.click();
+}
+
+function initializeSlider() {
+    const slider = document.getElementById('image-slider');
+
+    // Danh sách tên file ảnh trong thư mục sliders (bạn sẽ phải tự động tạo danh sách này, hoặc sử dụng một script server-side để tạo nó)
+    const images = [
+        'sliders/1.jpg',
+        'sliders/2.jpg',
+        'sliders/3.jpg',
+        'sliders/4.jpg',
+        'sliders/5.jpg'
+    ];
+
+    images.forEach(image => {
+        const slide = document.createElement('div');
+        slide.innerHTML = `<img src="${image}" alt="Slide Image">`;
+        slider.appendChild(slide);
+    });
+
+    // Khởi tạo slider với Slick
+    $('.slider').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+    });
 }
