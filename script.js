@@ -3,12 +3,14 @@ document.getElementById('download').addEventListener('click', downloadImage, fal
 
 let uploadedFileName = '';
 
+// Vẽ khung nền frame.png ngay khi trang được tải
 window.onload = function() {
     drawFrame();
 };
 
 function drawFrame() {
     const frame = new Image();
+    console.log('drawing... the frame')
     const ctx = canvas.getContext('2d');
     frame.src = 'imgs/frame.png';
     frame.onload = function() {
@@ -19,7 +21,6 @@ function drawFrame() {
         ctx.drawImage(frame, 0, 0, canvas.width, canvas.height);
     }
 }
-
 
 function handleImage(e) {
     uploadedFileName = e.target.files[0].name.split('.')[0];
@@ -33,25 +34,6 @@ function handleImage(e) {
                 const canvas = document.getElementById('canvas');
                 const ctx = canvas.getContext('2d');
 
-                // // Set canvas dimensions to match the overlay
-                // canvas.width = overlay.width;
-                // canvas.height = overlay.height;
-
-                // // Calculate the scaling factor to fit the uploaded image within the overlay
-                // const scaleFactor = Math.min(
-                //     overlay.width / img.width,
-                //     overlay.height / img.height
-                // );
-
-                // const scaledWidth = img.width * scaleFactor;
-                // const scaledHeight = img.height * scaleFactor;
-
-                // // Center the scaled image on the canvas
-                // const xOffset = (canvas.width - scaledWidth);
-                // const yOffset = (canvas.height - scaledHeight);
-
-                // // Draw the scaled image
-                // ctx.drawImage(img, xOffset, yOffset, scaledWidth, scaledHeight);
                 if (img.width !== img.height) {
                     const minSize= img.width > img.height? img.height : img.width;
                     // crop
@@ -65,7 +47,6 @@ function handleImage(e) {
                     const yOffset = (canvas.height - scaledHeight);
                     ctx.drawImage(img, xOffset, yOffset, scaledWidth, scaledHeight);
                 }
-
                 // Draw the overlay on top
                 ctx.drawImage(overlay, 0, 0, canvas.width, canvas.height);
             };
