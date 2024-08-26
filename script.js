@@ -70,11 +70,11 @@ function initializeSlider() {
 
     // Danh sách tên file ảnh trong thư mục sliders (bạn sẽ phải tự động tạo danh sách này, hoặc sử dụng một script server-side để tạo nó)
     const images = [
-        'imgs/sliders/1.jpg',
-        'imgs/sliders/2.jpg',
-        'imgs/sliders/3.jpg',
-        'imgs/sliders/4.jpg',
-        'imgs/sliders/5.jpg'
+        'sliders/1.jpg',
+        'sliders/2.jpg',
+        'sliders/3.jpg',
+        'sliders/4.jpg',
+        'sliders/5.jpg'
     ];
 
     images.forEach(image => {
