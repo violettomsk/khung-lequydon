@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#upload {
+    display: none; /* Hide the default file input */
+}
+
+#canvas {
+    display: block;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    max-width: 100%;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a#visit-fb {
+    display: block;
+    margin: 20px;
+    padding: 10px;
+    color: #f4f4f4;
+    background-color: #007bff; 
+    border-radius: 4px;
+}
+
+img#banner {
+    width: 100%;
+}
