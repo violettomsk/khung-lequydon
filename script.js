@@ -9,7 +9,6 @@ window.onload = function() {
 
 function drawFrame() {
     const frame = new Image();
-    console.log('drawing... the frame')
     const ctx = canvas.getContext('2d');
     frame.src = 'imgs/frame.png';
     frame.onload = function() {
