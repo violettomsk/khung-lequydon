@@ -36,9 +36,15 @@ function handleImage(e) {
                 const ctx = canvas.getContext('2d');
 
                 if (img.width !== img.height) {
-                    const minSize= img.width > img.height? img.height : img.width;
-                    // crop
-                    ctx.drawImage(img, 0, 0, minSize, minSize, 0, 0, minSize, minSize);
+                    if (img.height > img.width) {               
+                        // console.log("portrait")
+                        // console.log(`${img.width}:${img.height}`);
+                        ctx.drawImage(img, 0, 0, img.width, img.width, 0, 0, canvas.width, canvas.width);
+                    } else {
+                        // console.log("landscape")
+                        // console.log(`${img.width}:${img.height}`);
+                        ctx.drawImage(img, 0, 0, img.height, img.height, 0, 0, canvas.width, canvas.width);
+                    }
                 } else {
                     // Calculate the scaling factor to fit the uploaded image within the overlay
                     const scaleFactor = overlay.width / img.width;
